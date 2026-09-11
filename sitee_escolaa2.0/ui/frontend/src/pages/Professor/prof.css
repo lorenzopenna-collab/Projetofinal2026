@@ -1,0 +1,518 @@
+.professor-page {
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+.professor-layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+/* SIDEBAR */
+
+.professor-sidebar {
+  width: 235px;
+  background: #ffffff;
+  border-right: 1px solid #e1e5e9;
+  padding: 20px 12px;
+  flex-shrink: 0;
+}
+
+.professor-menu-title {
+  padding: 5px 12px 15px;
+  color: #8a96a3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.menu-professor {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #5f6b76;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.menu-professor:hover {
+  background: #f1f6fc;
+  color: #1976d2;
+}
+
+.menu-professor.active {
+  background: #e3f2fd;
+  color: #1565c0;
+  font-weight: 700;
+}
+
+.menu-professor span {
+  flex: 1;
+}
+
+.sidebar-separador {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px 5px;
+}
+
+.sair-menu {
+  color: #dc2626;
+}
+
+.sair-menu:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* CONTEÚDO */
+
+.professor-content {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+}
+
+.pagina-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.pagina-titulo h1 {
+  color: #1f2937;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.pagina-titulo p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* CARDS */
+
+.professor-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.professor-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.professor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  border-color: #90caf9;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.professor-card h3 {
+  color: #1f2937;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.professor-card p {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* RESUMO */
+
+.professor-info-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+}
+
+.professor-info-box h2 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.resumo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.resumo-grid div {
+  background: #f8fafc;
+  border-radius: 9px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resumo-grid strong {
+  color: #1565c0;
+  font-size: 25px;
+}
+
+.resumo-grid span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* FILTROS */
+
+.filtro-professor {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.filtro-professor label,
+.campo-professor label {
+  display: block;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.filtro-professor select,
+.filtro-professor input,
+.campo-professor select,
+.campo-professor textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 11px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+}
+
+.filtro-professor select:focus,
+.filtro-professor input:focus,
+.campo-professor select:focus,
+.campo-professor textarea:focus {
+  border-color: #1976d2;
+}
+
+/* TABELA */
+
+.tabela-container {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.tabela-professor {
+  min-width: 750px;
+}
+
+.tabela-professor th {
+  background: #f5f8fb;
+  color: #596675;
+  font-size: 12px;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.tabela-professor td {
+  color: #4b5563;
+  font-size: 13px;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.tabela-professor tr:last-child td {
+  border-bottom: none;
+}
+
+.nota-input,
+.falta-input {
+  width: 75px;
+  padding: 9px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  outline: none;
+  text-align: center;
+}
+
+.nota-input:focus,
+.falta-input:focus {
+  border-color: #1976d2;
+}
+
+.media-aprovado {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+.media-baixa {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #ffebee;
+  color: #c62828;
+  font-weight: 700;
+}
+
+/* BOTÃO */
+
+.botao-salvar {
+  border: none;
+  border-radius: 8px;
+  background: #1976d2;
+  color: #ffffff;
+  padding: 11px 18px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.botao-salvar:hover {
+  background: #1565c0;
+}
+
+/* FREQUÊNCIA */
+
+.status-presente {
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-falta {
+  color: #c62828;
+  background: #ffebee;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* OCORRÊNCIAS */
+
+.ocorrencia-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 20px;
+}
+
+.ocorrencia-form,
+.lista-ocorrencias {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.ocorrencia-form h2,
+.lista-ocorrencias h2 {
+  color: #1f2937;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.campo-professor {
+  margin-bottom: 17px;
+}
+
+.campo-professor textarea {
+  resize: vertical;
+}
+
+.botao-ocorrencia {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #1976d2;
+  color: white;
+  padding: 12px;
+  font-weight: 700;
+}
+
+.botao-ocorrencia:hover {
+  background: #1565c0;
+}
+
+.sem-ocorrencias {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.sem-ocorrencias span {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.sem-ocorrencias p {
+  font-size: 13px;
+}
+
+.ocorrencia-item {
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #1976d2;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 12px;
+}
+
+.ocorrencia-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 9px;
+}
+
+.ocorrencia-topo strong {
+  color: #374151;
+  font-size: 13px;
+}
+
+.ocorrencia-topo span {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.ocorrencia-tipo {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.ocorrencia-item p {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 1000px) {
+  .professor-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ocorrencia-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .professor-sidebar {
+    width: 190px;
+  }
+
+  .professor-content {
+    padding: 20px;
+  }
+
+  .filtro-professor {
+    grid-template-columns: 1fr;
+  }
+
+  .resumo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .professor-layout {
+    flex-direction: column;
+  }
+
+  .professor-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e1e5e9;
+  }
+
+  .professor-menu-title {
+    display: none;
+  }
+
+  .menu-professor {
+    display: inline-flex;
+    width: auto;
+    margin-right: 5px;
+  }
+
+  .sidebar-separador {
+    display: none;
+  }
+
+  .sair-menu {
+    float: right;
+  }
+
+  .pagina-titulo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botao-salvar {
+    width: 100%;
+  }
+
+  .professor-content {
+    padding: 15px;
+  }
+
+  .professor-card {
+    padding: 17px;
+  }
+
+  .ocorrencia-form,
+  .lista-ocorrencias {
+    padding: 18px;
+  }
+}
