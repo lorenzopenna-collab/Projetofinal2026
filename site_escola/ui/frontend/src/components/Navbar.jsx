@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar({ tipo = "aluno" }) {
@@ -21,9 +22,15 @@ function Navbar({ tipo = "aluno" }) {
           SIGE
         </div>
 
-        <div className="navbar-menu-icon">
-          ☰
-        </div>
+        <button
+          className="navbar-menu-icon"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
         <span className="navbar-titulo">
           Sistema Integrado de Gestão Escolar
@@ -34,49 +41,43 @@ function Navbar({ tipo = "aluno" }) {
       <div className="navbar-direita">
 
         <span className="navbar-escola">
-          🏫 SIGE - ESCOLA
+          SIGE - ESCOLA
         </span>
 
-        <div
-          className="navbar-perfil"
-          onClick={() =>
-            setMenuAberto(!menuAberto)
-          }
-        >
+        <div className="navbar-perfil">
 
-          <div className="perfil-icone">
-            👤
-          </div>
+          <button
+            className="perfil-botao"
+            type="button"
+            onClick={() => setMenuAberto(!menuAberto)}
+          >
 
-          <span>
-            {tipo === "professor"
-              ? "Professor"
-              : "Aluno"}
-          </span>
+            <div className="perfil-icone">
+              <span></span>
+            </div>
 
-          <span className="perfil-seta">
-            ▾
-          </span>
+            <span className="perfil-nome">
+              {tipo === "professor" ? "Professor" : "Aluno"}
+            </span>
+
+            <span className="perfil-seta">
+              {menuAberto ? "⌃" : "⌄"}
+            </span>
+
+          </button>
 
           {menuAberto && (
-            <div
-              className="perfil-dropdown"
-              onClick={(e) =>
-                e.stopPropagation()
-              }
-            >
+            <div className="perfil-dropdown">
 
               <div className="perfil-info">
 
                 <div className="perfil-avatar">
-                  👤
+                  <span></span>
                 </div>
 
                 <div>
                   <strong>
-                    {tipo === "professor"
-                      ? "Professor"
-                      : "Aluno"}
+                    {tipo === "professor" ? "Professor" : "Aluno"}
                   </strong>
 
                   <small>
@@ -90,9 +91,11 @@ function Navbar({ tipo = "aluno" }) {
 
               <button
                 className="botao-sair"
+                type="button"
                 onClick={sair}
               >
-                🚪 Sair
+                <span className="icone-sair">↪</span>
+                Sair
               </button>
 
             </div>

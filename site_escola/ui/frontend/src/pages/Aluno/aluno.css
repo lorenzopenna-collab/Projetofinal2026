@@ -1,231 +1,397 @@
+/* =========================================================
+   1. PÁGINA
+========================================================= */
+
 .aluno-page {
   min-height: 100vh;
   padding: 25px;
-  background: #f4f6f9;
+
+  background: #f5f6fb;
   color: #27364a;
+
+  box-sizing: border-box;
 }
 
-/* TOPO */
+.aluno-page *,
+.aluno-page *::before,
+.aluno-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. CABEÇALHO
+========================================================= */
 
 .aluno-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
   margin-bottom: 25px;
 }
 
 .aluno-top h1 {
   margin: 0;
+
+  color: #35205f;
   font-size: 24px;
-  color: #173b61;
+  font-weight: 700;
 }
 
 .aluno-top p {
   margin: 7px 0 0;
-  color: #718096;
+
+  color: #74748a;
   font-size: 13px;
 }
 
 .aluno-avatar {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background: #2980b9;
-  color: white;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 20px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #5b2fa3, #315fc4);
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow: 0 4px 10px rgba(91, 47, 163, 0.22);
 }
 
-/* CARDS */
+
+/* =========================================================
+   3. RESUMO
+========================================================= */
 
 .aluno-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
   gap: 15px;
-  margin-bottom: 20px;
+
+  margin-bottom: 25px;
 }
 
 .aluno-card {
-  background: white;
-  border: 1px solid #e0e5eb;
-  border-radius: 7px;
-  padding: 18px;
+  min-height: 92px;
+
   display: flex;
   align-items: center;
+
   gap: 14px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e3ee;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 7px rgba(52, 32, 95, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.aluno-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #d5d1e8;
+
+  box-shadow: 0 7px 16px rgba(52, 32, 95, 0.09);
 }
 
 .aluno-card span {
   display: block;
-  color: #7a8797;
+
+  color: #77788b;
   font-size: 12px;
 }
 
 .aluno-card strong {
   display: block;
+
   margin-top: 5px;
+
+  color: #30234d;
+
   font-size: 22px;
-  color: #20364f;
+  font-weight: 700;
 }
+
+
+/* =========================================================
+   4. ÍCONES DOS CARDS
+========================================================= */
 
 .card-icon {
   width: 43px;
   height: 43px;
-  border-radius: 7px;
+  min-width: 43px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .card-icon.blue {
-  background: #e5f2fb;
+  background: #e8efff;
+  color: #315fc4;
 }
 
 .card-icon.red {
-  background: #fde8e8;
+  background: #fdeaea;
+  color: #d64545;
 }
 
 .card-icon.green {
-  background: #e4f7ed;
+  background: #e5f7ef;
+  color: #159765;
 }
 
 .card-icon.orange {
-  background: #fff0dc;
+  background: #fff1df;
+  color: #d88918;
 }
 
-/* GRID */
 
-.aluno-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 18px;
+/* =========================================================
+   5. TÍTULOS DAS SEÇÕES
+========================================================= */
+
+.aluno-secao {
+  margin-bottom: 25px;
 }
 
-/* BOX */
+.aluno-secao-titulo {
+  margin-bottom: 12px;
+}
+
+.aluno-secao-titulo h2 {
+  margin: 0;
+
+  color: #35205f;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.aluno-secao-titulo p {
+  margin: 4px 0 0;
+
+  color: #85859a;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   6. CAIXAS
+========================================================= */
 
 .aluno-box {
-  background: white;
-  border: 1px solid #dce2e8;
-  border-radius: 7px;
-  margin-bottom: 18px;
   overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e2ed;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 7px rgba(52, 32, 95, 0.035);
 }
 
 .box-header {
-  padding: 17px 18px;
-  border-bottom: 1px solid #e6e9ed;
+  min-height: 65px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #e8e8f0;
+
+  background: #ffffff;
 }
 
 .box-header h2 {
   margin: 0;
+
+  color: #35205f;
+
   font-size: 16px;
-  color: #263d57;
+  font-weight: 700;
 }
 
 .box-header p {
   margin: 5px 0 0;
+
+  color: #89899b;
+
   font-size: 11px;
-  color: #8994a1;
 }
 
 .date-badge {
-  background: #edf5fb;
-  color: #2878a8;
-  border-radius: 4px;
   padding: 7px 10px;
+
+  background: #edf1ff;
+
+  border: 1px solid #dce4ff;
+  border-radius: 5px;
+
+  color: #315fc4;
+
   font-size: 11px;
-  font-weight: bold;
+  font-weight: 700;
+
+  white-space: nowrap;
 }
 
-/* AULAS */
 
-.aulas-list {
+/* =========================================================
+   7. FALTAS
+========================================================= */
+
+.faltas-list {
   padding: 5px 18px;
 }
 
-.aula-item {
-  min-height: 57px;
-  border-bottom: 1px solid #edf0f3;
+.falta-item {
+  min-height: 65px;
+
   display: flex;
   align-items: center;
+
   gap: 15px;
+
+  border-bottom: 1px solid #eeeef4;
 }
 
-.aula-item:last-child {
-  border-bottom: 0;
+.falta-item:last-child {
+  border-bottom: none;
 }
 
-.aula-hora {
-  width: 50px;
-  color: #2980b9;
-  font-weight: bold;
-  font-size: 12px;
+.falta-data {
+  width: 60px;
+  min-width: 60px;
+
+  text-align: center;
 }
 
-.aula-info {
-  flex: 1;
-}
-
-.aula-info strong {
+.falta-data strong {
   display: block;
-  font-size: 12px;
+
+  color: #403b50;
+
+  font-size: 18px;
+  font-weight: 700;
 }
 
-.aula-info span {
-  display: block;
-  margin-top: 4px;
-  color: #8994a1;
-  font-size: 10px;
-}
+.falta-data span {
+  color: #9292a2;
 
-.aula-status {
-  background: #eef3f7;
-  color: #667789;
-  padding: 5px 8px;
-  border-radius: 3px;
   font-size: 9px;
 }
 
-/* NOTAS */
+.falta-info {
+  flex: 1;
+}
+
+.falta-info strong {
+  display: block;
+
+  color: #3a3450;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.falta-info span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #9292a2;
+
+  font-size: 10px;
+}
+
+.status-falta {
+  padding: 6px 10px;
+
+  background: #fdeaea;
+
+  border-radius: 5px;
+
+  color: #d64545;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   8. NOTAS
+========================================================= */
 
 .notas-list {
   padding: 5px 18px;
 }
 
 .nota-item {
-  min-height: 52px;
-  border-bottom: 1px solid #edf0f3;
+  min-height: 58px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #eeeef4;
 }
 
 .nota-item:last-child {
-  border-bottom: 0;
+  border-bottom: none;
 }
 
 .nota-item strong {
   display: block;
+
+  color: #3a3450;
+
   font-size: 12px;
+  font-weight: 700;
 }
 
 .nota-item span {
   display: block;
-  color: #8994a1;
-  font-size: 10px;
+
   margin-top: 3px;
+
+  color: #9292a2;
+
+  font-size: 10px;
 }
 
 .nota {
   font-size: 16px !important;
+  font-weight: 700;
 }
 
 .nota.boa {
@@ -237,53 +403,230 @@
 }
 
 .ver-button {
-  border: 0;
+  padding: 6px;
+
+  border: none;
   background: transparent;
-  color: #2980b9;
+
+  color: #5b2fa3;
+
   font-size: 11px;
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: color 0.2s ease;
 }
 
-/* FREQUÊNCIA */
+.ver-button:hover {
+  color: #315fc4;
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   9. OCORRÊNCIAS
+========================================================= */
+
+.ocorrencias-list {
+  padding: 5px 18px;
+}
+
+.ocorrencia-item {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid #eeeef4;
+}
+
+.ocorrencia-item:last-child {
+  border-bottom: none;
+}
+
+.ocorrencia-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f0eafd;
+
+  border: 1px solid #e0d5f7;
+  border-radius: 7px;
+
+  color: #6b3fb2;
+
+  font-weight: 700;
+}
+
+.ocorrencia-info {
+  flex: 1;
+}
+
+.ocorrencia-info strong {
+  display: block;
+
+  color: #3a3450;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ocorrencia-info p {
+  margin: 5px 0;
+
+  color: #707086;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ocorrencia-info small {
+  color: #9999a8;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   10. AULAS
+========================================================= */
+
+.aulas-list {
+  padding: 5px 18px;
+}
+
+.aula-item {
+  min-height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #eeeef4;
+}
+
+.aula-item:last-child {
+  border-bottom: none;
+}
+
+.aula-hora {
+  width: 55px;
+  min-width: 55px;
+
+  color: #315fc4;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aula-info {
+  flex: 1;
+}
+
+.aula-info strong {
+  display: block;
+
+  color: #3a3450;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aula-info span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #9292a2;
+
+  font-size: 10px;
+}
+
+.aula-status {
+  padding: 5px 9px;
+
+  background: #edf1ff;
+
+  border-radius: 4px;
+
+  color: #315fc4;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   11. FREQUÊNCIA
+========================================================= */
 
 .frequencia-box {
-  padding-bottom: 15px;
+  padding-bottom: 18px;
 }
 
 .frequencia-total {
-  font-size: 23px;
   color: #159765;
+
+  font-size: 23px;
+  font-weight: 700;
 }
 
 .frequencia-barra {
   height: 9px;
-  background: #e8edf1;
+
   margin: 20px 18px 15px;
-  border-radius: 10px;
+
   overflow: hidden;
+
+  background: #e9e9f0;
+
+  border-radius: 10px;
 }
 
 .frequencia-barra div {
   height: 100%;
-  background: #18a66b;
+
+  background: linear-gradient(
+    90deg,
+    #5b2fa3,
+    #315fc4
+  );
+
   border-radius: 10px;
 }
 
 .frequencia-info {
   display: flex;
-  padding: 0 18px;
+
   gap: 40px;
+
+  padding: 0 18px;
 }
 
 .frequencia-info span {
   display: block;
-  color: #8994a1;
+
+  color: #9292a2;
+
   font-size: 10px;
 }
 
 .frequencia-info strong {
   display: block;
+
   margin-top: 5px;
+
+  color: #403b50;
+
   font-size: 15px;
 }
 
@@ -295,123 +638,88 @@
   color: #d64545;
 }
 
-/* FALTAS */
 
-.faltas-list {
-  padding: 5px 18px;
-}
-
-.falta-item {
-  display: flex;
-  align-items: center;
-  min-height: 60px;
-  border-bottom: 1px solid #edf0f3;
-  gap: 15px;
-}
-
-.falta-item:last-child {
-  border-bottom: 0;
-}
-
-.falta-data {
-  width: 55px;
-  text-align: center;
-}
-
-.falta-data strong {
-  display: block;
-  font-size: 18px;
-  color: #34495e;
-}
-
-.falta-data span {
-  font-size: 9px;
-  color: #8994a1;
-}
-
-.falta-info {
-  flex: 1;
-}
-
-.falta-info strong {
-  display: block;
-  font-size: 12px;
-}
-
-.falta-info span {
-  display: block;
-  font-size: 10px;
-  color: #8994a1;
-  margin-top: 3px;
-}
-
-.status-falta,
-.status-presente {
-  padding: 5px 9px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.status-falta {
-  background: #fde8e8;
-  color: #d64545;
-}
-
-.status-presente {
-  background: #e4f7ed;
-  color: #159765;
-}
-
-/* AVISOS */
-
-.avisos-box {
-  margin-bottom: 0;
-}
+/* =========================================================
+   12. AVISOS
+========================================================= */
 
 .aviso {
-  padding: 18px;
   display: flex;
+  align-items: flex-start;
+
   gap: 14px;
+
+  padding: 18px;
 }
 
 .aviso-icon {
   width: 40px;
   height: 40px;
-  background: #fff3dc;
-  border-radius: 6px;
+  min-width: 40px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: #eef0ff;
+
+  border: 1px solid #dfe3ff;
+  border-radius: 7px;
+
+  color: #5b2fa3;
+
+  font-weight: 700;
 }
 
 .aviso strong {
+  color: #3a3450;
+
   font-size: 12px;
+  font-weight: 700;
 }
 
 .aviso p {
   margin: 6px 0;
-  color: #69788a;
+
+  color: #707086;
+
   font-size: 11px;
   line-height: 1.5;
 }
 
 .aviso small {
-  color: #9aa3ad;
+  color: #9999a8;
+
   font-size: 9px;
 }
 
-/* RESPONSIVO */
+
+/* =========================================================
+   13. EFEITOS DE HOVER
+========================================================= */
+
+.aula-item:hover,
+.falta-item:hover,
+.nota-item:hover,
+.ocorrencia-item:hover {
+  background: #fafaff;
+}
+
+
+/* =========================================================
+   14. RESPONSIVIDADE — TABLET
+========================================================= */
 
 @media (max-width: 1000px) {
   .aluno-cards {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .aluno-grid {
-    grid-template-columns: 1fr;
-  }
 }
+
+
+/* =========================================================
+   15. RESPONSIVIDADE — CELULAR
+========================================================= */
 
 @media (max-width: 600px) {
   .aluno-page {
@@ -426,8 +734,62 @@
     font-size: 19px;
   }
 
+  .aluno-top p {
+    font-size: 12px;
+  }
+
+  .aluno-avatar {
+    width: 42px;
+    height: 42px;
+
+    font-size: 16px;
+  }
+
   .frequencia-info {
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .falta-item,
+  .aula-item {
+    gap: 10px;
+  }
+}
+
+
+/* =========================================================
+   16. RESPONSIVIDADE — CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 420px) {
+  .aluno-page {
+    padding: 12px;
+  }
+
+  .box-header {
+    padding: 14px;
+  }
+
+  .aulas-list,
+  .notas-list,
+  .faltas-list,
+  .ocorrencias-list {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .falta-data {
+    width: 50px;
+    min-width: 50px;
+  }
+
+  .falta-data strong {
+    font-size: 16px;
+  }
+
+  .aula-status,
+  .status-falta {
+    padding: 4px 7px;
+    font-size: 9px;
   }
 }

@@ -1,310 +1,457 @@
-import React, { useState } from "react";
-import "./aluno.css";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar.jsx";
+import "../../App.css";
+import "../../pages/Aluno/aluno.css"
 
-export default function Login() {
-  const [tipo, setTipo] = useState("aluno");
-  const [login, setLogin] = useState("");
-  const [senha, setSenha] = useState("");
-  const [mostrarSenha, setMostrarSenha] = useState(false);
+export default function Aluno() {
+  const navigate = useNavigate();
 
-  function entrar(event) {
-    event.preventDefault();
+  const usuario = JSON.parse(
+    localStorage.getItem("usuario")
+  ) || {
+    nome: "AGHTA JOICYHELLE RIBEIRO DE SOUSA",
+    matricula: "20260001",
+    turma: "1º ANO A - MATUTINO",
+  };
 
-    if (!login || !senha) {
-      alert("Preencha o login e a senha.");
-      return;
-    }
+  const notas = [
+    {
+      materia: "Matemática",
+      n1: 8.5,
+      n2: 7.0,
+      media: 7.75,
+    },
+    {
+      materia: "Português",
+      n1: 9.0,
+      n2: 8.5,
+      media: 8.75,
+    },
+    {
+      materia: "Física",
+      n1: 6.0,
+      n2: 7.5,
+      media: 6.75,
+    },
+    {
+      materia: "História",
+      n1: 9.5,
+      n2: 10.0,
+      media: 9.75,
+    },
+  ];
 
-    // LOGIN DO ALUNO
-    if (tipo === "aluno") {
-      if (login === "aghta@escola" && senha === "123456") {
-        localStorage.setItem(
-          "usuario",
-          JSON.stringify({
-            tipo: "aluno",
-            nome: "AGHTA JOICYHELLE RIBEIRO DE SOUSA",
-            matricula: "20260001",
-            turma: "1º ANO A - MATUTINO",
-          })
-        );
+  const faltas = [
+    {
+      data: "10",
+      mes: "JUN",
+      materia: "Matemática",
+      aula: "1ª aula",
+    },
+    {
+      data: "18",
+      mes: "JUN",
+      materia: "Física",
+      aula: "2ª aula",
+    },
+  ];
 
-        window.location.href = "/aluno";
-      } else {
-        alert("E-mail ou senha do aluno incorretos.");
-      }
+  const aulas = [
+    {
+      horario: "07:00",
+      materia: "Matemática",
+      professor: "Prof. Carlos",
+      sala: "Sala 01",
+    },
+    {
+      horario: "08:00",
+      materia: "Português",
+      professor: "Prof. Ana",
+      sala: "Sala 02",
+    },
+    {
+      horario: "09:00",
+      materia: "Física",
+      professor: "Prof. João",
+      sala: "Sala 03",
+    },
+  ];
 
-      return;
-    }
+  const ocorrencias = [
+    {
+      titulo: "Aviso escolar",
+      descricao:
+        "Reunião de pais e responsáveis será realizada na próxima semana.",
+      data: "15/06/2026",
+    },
+  ];
 
-    // LOGIN DO PROFESSOR
-    if (tipo === "professor") {
-      if (login === "12345678900" && senha === "123456") {
-        localStorage.setItem(
-          "usuario",
-          JSON.stringify({
-            tipo: "professor",
-            nome: "Professor Carlos",
-          })
-        );
-
-        window.location.href = "/professor";
-      } else {
-        alert("CPF ou senha do professor incorretos.");
-      }
-    }
+  function sair() {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("tipoUsuario");
+    navigate("/login");
   }
 
   return (
-    <main className="login-page">
+    <>
+      <Navbar tipo="aluno" />
 
-      <div className="login-background">
-        <div className="login-shape shape-one"></div>
-        <div className="login-shape shape-two"></div>
-      </div>
+      <main className="aluno-page">
 
-      <section className="login-container">
-
-        {/* LOGO */}
-        <div className="login-brand">
-
-          <div className="brand-icon">
-            SIGE
-          </div>
+        {/* CABEÇALHO */}
+        <section className="aluno-top">
 
           <div>
-            <h1>SIGE</h1>
-
-            <span>
-              Sistema Integrado de Gestão Escolar
-            </span>
-          </div>
-
-        </div>
-
-        {/* CARD */}
-        <div className="login-card">
-
-          <div className="login-header">
-            <h2>Acesso ao sistema</h2>
+            <h1>
+              Olá, {usuario.nome.split(" ")[0]}!
+            </h1>
 
             <p>
-              Entre com seus dados para continuar
+              Confira suas informações escolares.
             </p>
           </div>
 
-          {/* TIPO DE USUÁRIO */}
-          <div className="login-tabs">
-
-            <button
-              type="button"
-              className={
-                tipo === "aluno"
-                  ? "login-tab active"
-                  : "login-tab"
-              }
-              onClick={() => {
-                setTipo("aluno");
-                setLogin("");
-                setSenha("");
-              }}
-            >
-              <span>👨‍🎓</span>
-              Aluno
-            </button>
-
-            <button
-              type="button"
-              className={
-                tipo === "professor"
-                  ? "login-tab active"
-                  : "login-tab"
-              }
-              onClick={() => {
-                setTipo("professor");
-                setLogin("");
-                setSenha("");
-              }}
-            >
-              <span>👨‍🏫</span>
-              Professor
-            </button>
-
+          <div className="aluno-avatar">
+            {usuario.nome.charAt(0)}
           </div>
 
-          {/* FORMULÁRIO */}
-          <form onSubmit={entrar}>
+        </section>
 
-            {/* LOGIN */}
-            <div className="input-group">
+        {/* RESUMO */}
+        <section className="aluno-cards">
 
-              <label>
-                {tipo === "aluno"
-                  ? "E-mail escolar"
-                  : "CPF"}
-              </label>
+          <div className="aluno-card">
+            <div className="card-icon blue">
+              📊
+            </div>
 
-              <div className="input-wrapper">
+            <div>
+              <span>Média geral</span>
+              <strong>8,25</strong>
+            </div>
+          </div>
 
-                <span className="input-icon">
-                  {tipo === "aluno" ? "✉" : "👤"}
-                </span>
+          <div className="aluno-card">
+            <div className="card-icon green">
+              ✓
+            </div>
 
-                <input
-                  type={
-                    tipo === "aluno"
-                      ? "email"
-                      : "text"
-                  }
-                  value={login}
-                  onChange={(e) =>
-                    setLogin(e.target.value)
-                  }
-                  placeholder={
-                    tipo === "aluno"
-                      ? "seuusuario@escola"
-                      : "000.000.000-00"
-                  }
-                />
+            <div>
+              <span>Frequência</span>
+              <strong>92%</strong>
+            </div>
+          </div>
 
+          <div className="aluno-card">
+            <div className="card-icon red">
+              !
+            </div>
+
+            <div>
+              <span>Faltas</span>
+              <strong>4</strong>
+            </div>
+          </div>
+
+          <div className="aluno-card">
+            <div className="card-icon orange">
+              🔔
+            </div>
+
+            <div>
+              <span>Avisos</span>
+              <strong>1</strong>
+            </div>
+          </div>
+
+        </section>
+
+        {/* DADOS DO ALUNO */}
+        <section className="aluno-secao">
+
+          <div className="aluno-secao-titulo">
+            <h2>Dados do aluno</h2>
+            <p>Informações da sua matrícula</p>
+          </div>
+
+          <div className="aluno-box">
+
+            <div className="box-header">
+              <div>
+                <h2>{usuario.nome}</h2>
+
+                <p>
+                  Aluno regularmente matriculado
+                </p>
+              </div>
+            </div>
+
+            <div className="frequencia-info">
+
+              <div>
+                <span>Matrícula</span>
+                <strong>{usuario.matricula}</strong>
               </div>
 
-              {tipo === "aluno" && (
-                <small>
-                  Use seu endereço com @escola
-                </small>
-              )}
+              <div>
+                <span>Turma</span>
+                <strong>{usuario.turma}</strong>
+              </div>
 
             </div>
 
-            {/* SENHA */}
-            <div className="input-group">
+          </div>
 
-              <label>
-                Senha
-              </label>
+        </section>
 
-              <div className="input-wrapper">
+        {/* NOTAS */}
+        <section className="aluno-secao">
 
-                <span className="input-icon">
-                  🔒
-                </span>
+          <div className="aluno-secao-titulo">
+            <h2>Minhas notas</h2>
+            <p>Notas e médias das disciplinas</p>
+          </div>
 
-                <input
-                  type={
-                    mostrarSenha
-                      ? "text"
-                      : "password"
-                  }
-                  value={senha}
-                  onChange={(e) =>
-                    setSenha(e.target.value)
-                  }
-                  placeholder="Digite sua senha"
-                />
+          <div className="aluno-box">
 
-                <button
-                  type="button"
-                  className="show-password"
-                  onClick={() =>
-                    setMostrarSenha(!mostrarSenha)
-                  }
+            <div className="notas-list">
+
+              {notas.map((nota) => (
+                <div
+                  className="nota-item"
+                  key={nota.materia}
                 >
-                  {mostrarSenha
-                    ? "Ocultar"
-                    : "Mostrar"}
-                </button>
 
+                  <div>
+                    <strong>
+                      {nota.materia}
+                    </strong>
+
+                    <span>
+                      N1: {nota.n1} | N2: {nota.n2}
+                    </span>
+                  </div>
+
+                  <strong
+                    className={
+                      nota.media >= 7
+                        ? "nota boa"
+                        : "nota baixa"
+                    }
+                  >
+                    {nota.media}
+                  </strong>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* FREQUÊNCIA */}
+        <section className="aluno-secao">
+
+          <div className="aluno-secao-titulo">
+            <h2>Minha frequência</h2>
+            <p>Acompanhamento da frequência escolar</p>
+          </div>
+
+          <div className="aluno-box frequencia-box">
+
+            <div className="box-header">
+
+              <div>
+                <h2>Frequência geral</h2>
+                <p>Presença nas aulas</p>
+              </div>
+
+              <strong className="frequencia-total">
+                92%
+              </strong>
+
+            </div>
+
+            <div className="frequencia-barra">
+              <div style={{ width: "92%" }}></div>
+            </div>
+
+            <div className="frequencia-info">
+
+              <div>
+                <span>Aulas</span>
+                <strong>50</strong>
+              </div>
+
+              <div>
+                <span>Presenças</span>
+                <strong className="green-text">
+                  46
+                </strong>
+              </div>
+
+              <div>
+                <span>Faltas</span>
+                <strong className="red-text">
+                  4
+                </strong>
               </div>
 
             </div>
 
-            {/* OPÇÕES */}
-            <div className="login-options">
+          </div>
 
-              <label className="remember">
+        </section>
 
-                <input
-                  type="checkbox"
-                />
+        {/* FALTAS */}
+        <section className="aluno-secao">
 
-                <span>
-                  Manter conectado
-                </span>
+          <div className="aluno-secao-titulo">
+            <h2>Últimas faltas</h2>
+            <p>Registro das suas ausências</p>
+          </div>
 
-              </label>
+          <div className="aluno-box">
 
-              <button
-                type="button"
-                className="forgot"
-                onClick={() =>
-                  alert(
-                    "Entre em contato com a secretaria da escola para recuperar sua senha."
-                  )
-                }
-              >
-                Esqueci minha senha
-              </button>
+            <div className="faltas-list">
+
+              {faltas.map((falta, index) => (
+                <div
+                  className="falta-item"
+                  key={index}
+                >
+
+                  <div className="falta-data">
+                    <strong>
+                      {falta.data}
+                    </strong>
+
+                    <span>
+                      {falta.mes}
+                    </span>
+                  </div>
+
+                  <div className="falta-info">
+                    <strong>
+                      {falta.materia}
+                    </strong>
+
+                    <span>
+                      {falta.aula}
+                    </span>
+                  </div>
+
+                  <span className="status-falta">
+                    FALTA
+                  </span>
+
+                </div>
+              ))}
 
             </div>
 
-            {/* BOTÃO ENTRAR */}
-            <button
-              type="submit"
-              className="login-button"
-            >
-              ENTRAR
+          </div>
 
-              <span>
-                →
-              </span>
-            </button>
+        </section>
 
-          </form>
+        {/* AULAS */}
+        <section className="aluno-secao">
 
-          {/* DADOS DE TESTE */}
-          <div className="demo-box">
+          <div className="aluno-secao-titulo">
+            <h2>Aulas de hoje</h2>
+            <p>Confira sua programação</p>
+          </div>
 
-            <strong>
-              Dados para teste
-            </strong>
+          <div className="aluno-box">
 
-            {tipo === "aluno" ? (
-              <>
-                <span>
-                  E-mail:{" "}
-                  <b>aghta@escola</b>
-                </span>
+            <div className="aulas-list">
 
-                <span>
-                  Senha:{" "}
-                  <b>123456</b>
-                </span>
-              </>
-            ) : (
-              <>
-                <span>
-                  CPF:{" "}
-                  <b>12345678900</b>
-                </span>
+              {aulas.map((aula, index) => (
+                <div
+                  className="aula-item"
+                  key={index}
+                >
 
-                <span>
-                  Senha:{" "}
-                  <b>123456</b>
-                </span>
-              </>
-            )}
+                  <div className="aula-hora">
+                    {aula.horario}
+                  </div>
+
+                  <div className="aula-info">
+
+                    <strong>
+                      {aula.materia}
+                    </strong>
+
+                    <span>
+                      {aula.professor} • {aula.sala}
+                    </span>
+
+                  </div>
+
+                  <span className="aula-status">
+                    AULA
+                  </span>
+
+                </div>
+              ))}
+
+            </div>
 
           </div>
 
-        </div>
+        </section>
 
-        {/* RODAPÉ */}
-        <footer className="login-footer">
-          © 2026 SIGE - Sistema Integrado de Gestão Escolar
-        </footer>
+        {/* OCORRÊNCIAS / AVISOS */}
+        <section className="aluno-secao">
 
-      </section>
+          <div className="aluno-secao-titulo">
+            <h2>Avisos e ocorrências</h2>
+            <p>Comunicados da escola</p>
+          </div>
 
-    </main>
+          <div className="aluno-box">
+
+            <div className="ocorrencias-list">
+
+              {ocorrencias.map((ocorrencia, index) => (
+                <div
+                  className="ocorrencia-item"
+                  key={index}
+                >
+
+                  <div className="ocorrencia-icon">
+                    !
+                  </div>
+
+                  <div className="ocorrencia-info">
+
+                    <strong>
+                      {ocorrencia.titulo}
+                    </strong>
+
+                    <p>
+                      {ocorrencia.descricao}
+                    </p>
+
+                    <small>
+                      {ocorrencia.data}
+                    </small>
+
+                  </div>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+    </>
   );
 }

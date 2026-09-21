@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // <--- Adicione esta linha (ou ajuste a importação do React)
 import "./Login.css";
 
 export default function Login() {

@@ -1,4 +1,4 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login.jsx";
 import Aluno from "./pages/Aluno/aluno.jsx";
 import Professor from "./pages/Professor/prof.jsx";
